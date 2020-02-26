@@ -1,20 +1,26 @@
 package io.lll.service;
 
+import com.github.pagehelper.Page;
 import io.lll.dto.in.ProductCreateInDTO;
 import io.lll.dto.in.ProductUpdateInDTO;
-import io.lll.dto.out.PageOutDTO;
 import io.lll.dto.out.ProductListOutDTO;
+import io.lll.dto.out.ProductShowOutDTO;
+
+import java.util.List;
 
 public interface ProductService {
 
-    public PageOutDTO<ProductListOutDTO> search(String productCode,
-                                                String productName,
-                                                Double price,
-                                                Integer quantity,
-                                                Byte status,
-                                                Integer pageNum);
+    Integer create(ProductCreateInDTO productCreateInDTO);
 
-    public Integer create(ProductCreateInDTO productCreateInDTO);
+    void update(ProductUpdateInDTO productUpdateInDTO);
 
-    public void update(ProductUpdateInDTO productUpdateInDTO);
+    void delete(Integer productId);
+
+    void batchDelete(List<Integer> productIds);
+
+    Page<ProductListOutDTO> search(Integer pageNum);
+
+    ProductShowOutDTO getById(Integer productId);
+
+
 }

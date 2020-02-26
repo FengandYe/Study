@@ -1,46 +1,62 @@
 package io.lll.dto.out;
 
 public class ReturnListOutDTO {
-
-    private Integer return_id;
-    private Integer order_id;
-    private String customer_name;
+    private Integer returnId;
+    private Long orderId;
+    private Integer customerId;
+    private String customerName;
+    private String productCode;
+    private String productName;
     private Byte status;
-    private Long create_time;
+    private Long createTimestamp;
+    private Long updateTimestamp;
 
-    public ReturnListOutDTO() {
+    public Integer getReturnId() {
+        return returnId;
     }
 
-    public ReturnListOutDTO(Integer return_id, Integer order_id, String customer_name, Byte status, Long create_time) {
-        this.return_id = return_id;
-        this.order_id = order_id;
-        this.customer_name = customer_name;
-        this.status = status;
-        this.create_time = create_time;
+    public void setReturnId(Integer returnId) {
+        this.returnId = returnId;
     }
 
-    public Integer getReturn_id() {
-        return return_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setReturn_id(Integer return_id) {
-        this.return_id = return_id;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
-    public Integer getOrder_id() {
-        return order_id;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
-    public String getCustomer_name() {
-        return customer_name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Byte getStatus() {
@@ -51,22 +67,19 @@ public class ReturnListOutDTO {
         this.status = status;
     }
 
-    public Long getCreate_time() {
-        return create_time;
+    public Long getCreateTimestamp() {
+        return createTimestamp;
     }
 
-    public void setCreate_time(Long create_time) {
-        this.create_time = create_time;
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 
-    @Override
-    public String toString() {
-        return "ReturnListOutDTO{" +
-                "return_id=" + return_id +
-                ", order_id=" + order_id +
-                ", customer_name='" + customer_name + '\'' +
-                ", status=" + status +
-                ", create_time=" + create_time +
-                '}';
+    public Long getUpdateTimestamp() {
+        return updateTimestamp;
+    }
+
+    public void setUpdateTimestamp(Long updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
     }
 }

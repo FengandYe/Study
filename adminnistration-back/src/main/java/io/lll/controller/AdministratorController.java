@@ -1,76 +1,72 @@
 package io.lll.controller;
 
+
 import io.lll.dto.in.*;
 import io.lll.dto.out.AdministratorGetProfileOutDTO;
 import io.lll.dto.out.AdministratorListOutDTO;
+import io.lll.dto.out.AdministratorShowOutDTO;
 import io.lll.dto.out.PageOutDTO;
-import io.lll.service.AdministratorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/administrator")
 public class AdministratorController {
 
-    @Autowired
-    AdministratorService administratorService;
-
     @GetMapping("/login")
-    public String login(@RequestParam String username,
-                        @RequestParam String password){
-        if(username ==null && password == null){
-            return null;
-        }
-        return administratorService.login(username,password);
+    public String login(AdministratorLoginInDTO administratorLoginInDTO){
+        return null;
     }
 
     @GetMapping("/getProfile")
-    public AdministratorGetProfileOutDTO getProfile(Integer administratorId){
-        if(administratorId == null){
-            return null;
-        }
-        return administratorService.getProfile(administratorId);
+    public AdministratorGetProfileOutDTO getProfile(@RequestParam(required = false) Integer adminstratorId){
+        return null;
     }
 
     @PostMapping("/updateProfile")
     public void updateProfile(@RequestBody AdministratorUpdateProfileInDTO administratorUpdateProfileInDTO){
-        administratorService.updateProfile(administratorUpdateProfileInDTO);
+
+    }
+
+    @GetMapping("/getPwdResetCode")
+    public String getPwdResetCode(@RequestParam String email){
+        return null;
+    }
+
+    @PostMapping("/resetPwd")
+    public void resetPwd(@RequestBody AdministratorResetPwdInDTO administratorResetPwdInDTO){
+
     }
 
     @GetMapping("/getList")
-    public PageOutDTO<AdministratorListOutDTO> getList(@RequestParam(required = false,defaultValue = "1") Integer pageNum){
-        int pageSize=5;
+    public PageOutDTO<AdministratorListOutDTO> getList(@RequestParam Integer pageNum){
+        return null;
+    }
 
+    @GetMapping("/getById")
+    public AdministratorShowOutDTO getById(@RequestParam Integer administratorId){
         return null;
     }
 
     @PostMapping("/create")
     public Integer create(@RequestBody AdministratorCreateInDTO administratorCreateInDTO){
-        return administratorService.create(administratorCreateInDTO);
+        return null;
     }
 
     @PostMapping("/update")
     public void update(@RequestBody AdministratorUpdateInDTO administratorUpdateInDTO){
-        administratorService.update(administratorUpdateInDTO);
+
     }
 
-    @GetMapping("/sendPasswordResetCodeToEmail")
-    public void sendPasswordResetCodeToEmail(@RequestParam String email){
-        administratorService.sendPasswordResetCodeToEmail(email);
+    @PostMapping("/delete")
+    public void delete(@RequestBody Integer adminstratorId){
+
     }
 
-    @PostMapping("/resetPassword")
-    public void resetPasswordByEmail(@RequestBody AdministratorResetPwdEmailInDTO administratorResetPwdEmailInDTO){
-        administratorService.resetPasswordByEmail(administratorResetPwdEmailInDTO);
+    @PostMapping("/batchDelete")
+    public void batchDelete(@RequestBody List<Integer> administratorIds){
+
     }
 
-    @GetMapping("/sendPasswordResetCodeToMobile")
-    public void sendPasswordResetCodeToMobile(@RequestParam String mobile){
-        administratorService.sendPasswordResetCodeToEmail(mobile);
-    }
-
-    @PostMapping("/resetPassword")
-    public void resetPasswordByMobile(@RequestBody AdministratorResetPwdMobileInDTO administratorResetPwdMobileInDTO){
-        administratorService.resetPasswordByMobile(administratorResetPwdMobileInDTO);
-    }
 }
